@@ -8,10 +8,12 @@ setopt prompt_subst
 zstyle ':vcs_info:*' formats '%F{red}(๑•̀ㅂ•́)و✧(%b)%f'    
 zstyle ':vcs_info:*' actionformats '%F{red}(๑•̀ㅂ•́)و✧(%b%[%a])%f'    
 # プロンプト表示直前にvcs_info呼び出し    
-precmd() { vcs_info }
+precmd() { 
+    vcs_info
+
+}
 
 export PROMPT='%F{green}%n@%m%f:%F{blue}%2d%f${vcs_info_msg_0_} $ '
-
 export RPROMPT='[📅 %D 🕐 %*]'
 
 # ------------------------------
@@ -26,6 +28,9 @@ autoload -U compinit; compinit # 補完機能を有効にする
 setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない
 
 ### History ###
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt pushd_ignore_dups  # 重複したディレクトリを追加しない
 
 # ------------------------------
