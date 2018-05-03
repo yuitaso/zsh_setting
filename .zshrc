@@ -1,20 +1,35 @@
+# ------------------------------
+# Prompt Settings
+# ------------------------------ 
 
-# vcs_infoロード    
-autoload -Uz vcs_info    
-# PROMPT変数内で変数参照する    
-setopt prompt_subst    
-
-# vcsの表示    
-zstyle ':vcs_info:*' formats '%F{red}(๑•̀ㅂ•́)و✧(%b)%f'    
-zstyle ':vcs_info:*' actionformats '%F{red}(๑•̀ㅂ•́)و✧(%b%[%a])%f'    
-# プロンプト表示直前にvcs_info呼び出し    
-precmd() { 
-    vcs_info
-
+# 直前のコマンドの終了ステータスによって表情を変更
+face='XXX'
+function setface() {
+    if [[ $? -eq 0 ]]; then
+        face='(๑•̀ㅂ•́)و✧ ';
+    else
+        face='(๑•́ ₃ •̀๑) '
+    fi
 }
 
-export PROMPT='%F{green}%n@%m%f:%F{blue}%2d%f${vcs_info_msg_0_} $ '
-export RPROMPT='[📅 %D 🕐 %*]'
+# vcs_infoロード
+autoload -Uz vcs_info
+# PROMPT変数内で変数参照する
+setopt prompt_subst 
+# フォーマットの設定
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '!'
+zstyle ':vcs_info:git:*' unstagedstr '+'
+zstyle ':vcs_info:*' formats '%F{red}%c%u(%b)%f' 
+zstyle ':vcs_info:*' actionformats '%F{red}(%b%[%a])%f'    
+# プロンプト表示直前
+precmd() {
+    setface
+    vcs_info
+}
+
+export PROMPT='%F{green}%n@%m%f:%F{blue}%2d%f%F{red}${face}%f${vcs_info_msg_0_} $'
+export RPROMPT='[📅 %D🕐 %*]'
 
 # ------------------------------
 # General Settings
