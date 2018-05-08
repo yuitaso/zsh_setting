@@ -31,6 +31,21 @@ precmd() {
 export PROMPT='%F{green}%n@%m%f:%F{blue}%2d%f%F{red}${face}%f${vcs_info_msg_0_} $'
 export RPROMPT='[📅 %D🕐 %*]'
 
+
+# ------------------------------
+# peco setting
+# ------------------------------
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
 # ------------------------------
 # General Settings
 # ------------------------------
@@ -84,6 +99,10 @@ alias restart='exec $SHELL -l'
 ### global
 alias ls='ls -GF'
 alias ipadd='ifconfig | grep "inet "'
+
+## peco
+alias g='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 ### git
 alias -g 'git status'='git status --porcelain --branch'
