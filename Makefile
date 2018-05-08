@@ -1,2 +1,2 @@
 install:
-	cp ./.zshrc ~/.zshrc
+	cp ./zshrc ~/.zshrc
