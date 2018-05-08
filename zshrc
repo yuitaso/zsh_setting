@@ -65,13 +65,13 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' #'so=32' 'ex=31' 'bd=46;34' '
 export GOPATH=$HOME/.go
 
 ### PATH
-export PATH=$PATH:~/.rbenv/shims
-export PATH=$PATH:~/.nodebrew/current/bin
-export PATH=$PATH:~/.phpenv/bin
-export PATH=$PATH:$GOPATH/bin
-
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+
+export PATH=~/.rbenv/shims:$PATH
+export PATH=~/.nodebrew/current/bin:$PATH
+export PATH=~/.phpenv/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 # ------------------------------
 # Alias
