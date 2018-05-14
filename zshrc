@@ -106,6 +106,7 @@ alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 ### yarn
 alias -g yo='yarn outdated'
+<<<<<<< HEAD
 alias -g yu=yarn_upgrade_wrapper
 yarn_upgrade_wrapper() {
   yarn upgrade "$1" --latest
