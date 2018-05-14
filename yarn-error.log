@@ -1,0 +1,29 @@
+Arguments: 
+  /Users/y-omata/.nodebrew/node/v8.9.4/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js outdated
+
+PATH: 
+  /Users/y-omata/.go/bin:/Users/y-omata/.phpenv/bin:/Users/y-omata/.nodebrew/current/bin:/Users/y-omata/.rbenv/shims:/usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/y-omata/.go/bin:/Users/y-omata/.phpenv/bin:/Users/y-omata/.nodebrew/current/bin:/Users/y-omata/.rbenv/shims:/usr/local/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  8.9.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: No lockfile in this directory. Run `yarn install` to generate one.
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:89389:13
+      at <anonymous>

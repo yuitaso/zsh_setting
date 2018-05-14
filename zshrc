@@ -44,7 +44,7 @@ function peco-src () {
   zle clear-screen
 }
 zle -N peco-src
-bindkey '^]' peco-src
+bindkey '^L' peco-src
 
 # ------------------------------
 # General Settings
@@ -103,6 +103,10 @@ alias ipadd='ifconfig | grep "inet "'
 ## peco
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+
+### yarn
+alias -g yo='yarn outdated'
+alias -g yu='yarn upgrade --latest'
 
 ### git
 alias -g 'git status'='git status --porcelain --branch'
