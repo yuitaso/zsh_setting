@@ -35,6 +35,7 @@ export RPROMPT='[📅 %D🕐 %*]'
 # ------------------------------
 # peco setting
 # ------------------------------
+# gコマンドでgitリポジトリをサーチ
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
@@ -45,6 +46,15 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey '^L' peco-src
+
+# ctl Hで履歴をインクリメンタルサーチ
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^H' peco-history-selection
 
 # ------------------------------
 # General Settings
@@ -106,7 +116,6 @@ alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 
 ### yarn
 alias -g yo='yarn outdated'
-<<<<<<< HEAD
 alias -g yu=yarn_upgrade_wrapper
 yarn_upgrade_wrapper() {
   yarn upgrade "$1" --latest
