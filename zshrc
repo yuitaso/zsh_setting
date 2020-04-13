@@ -99,6 +99,9 @@ export PATH=~/.nodebrew/current/bin:$PATH
 export PATH=~/.phpenv/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+### Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+
 # ------------------------------
 # Alias
 # ------------------------------
@@ -114,6 +117,7 @@ alias ipadd='ifconfig | grep "inet "'
 ## peco
 alias g='cd $(ghq root)/$(ghq list | peco)'
 alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gb='gco $(git for-each-ref --format="%(authorname) %09 %(refname:short)" --sort=authorname | sed "/origin/d" | peco | awk "{print \$NF}")'
 
 ### yarn
 alias -g yo='yarn outdated'
@@ -121,6 +125,9 @@ alias -g yu=yarn_upgrade_wrapper
 yarn_upgrade_wrapper() {
   yarn upgrade "$1" --latest
 }
+
+### gcc
+alias grun='g++ -Wall -std=c++14 main.cpp && ./a.out'
 
 ### fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
@@ -161,3 +168,17 @@ alias -g gbr='git branch'
 alias -g gbrd='git branch -d'
 alias -g gbrD='git branch -D'
 alias -g gnw='git log --oneline --decorate --all --graph'
+alias -g gcp='git cherry-pick'
+
+### other
+alias -g py='python3'
+
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
+export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/y-omata/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/y-omata/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/y-omata/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/y-omata/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
