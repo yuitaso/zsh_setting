@@ -127,7 +127,8 @@ yarn_upgrade_wrapper() {
 }
 
 ### gcc
-alias grun='g++ -Wall -std=c++14 main.cpp && ./a.out'
+alias gcomp='g++ -Wall -std=c++14'
+alias grun='./a.out'
 
 ### fuck
 alias fuck='eval $(thefuck $(fc -ln -1))'
