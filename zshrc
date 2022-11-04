@@ -57,6 +57,23 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^H' peco-history-selection
 
+# -----------------------------
+# pyenv setting
+# -----------------------------
+
+if [ -d "${HOME}/.pyenv" ]; then
+    export PYENV_ROOT="${HOME}/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+    fi
+fi
+
+# -----------------------------
+# nodenv setting
+# -----------------------------
+eval "$(nodenv init -)"
+
 # ------------------------------
 # General Settings
 # ------------------------------
