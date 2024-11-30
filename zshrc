@@ -32,6 +32,11 @@ export PROMPT='%F{green}%n@%m%f:%F{blue}%2d%f%F{red}${face}%f${vcs_info_msg_0_}
 $'
 export RPROMPT='[📅 %D🕐 %*]'
 
+# ------------------------------
+# homebrew setting
+# ------------------------------
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 
 # ------------------------------
 # peco setting
