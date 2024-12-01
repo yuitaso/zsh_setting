@@ -122,7 +122,7 @@ export PATH=~/.phpenv/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 ### Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk@11/11.0.25/libexec/openjdk.jdk/Contents/Home/
 
 # ------------------------------
 # Alias
@@ -165,6 +165,7 @@ alias -g 'git diff file'='git diff --name-only'
 alias -g gdfc='git diff --cached'
 alias -g gdfn='git diff --name-only'
 alias -g gco='git checkout'
+alias -g gsw='git switch'
 alias -g gcob='git checkout -b'
 alias -g gsh='git stash'
 alias -g gsha='git stash apply'
