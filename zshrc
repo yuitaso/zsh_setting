@@ -75,9 +75,9 @@ if [ -d "${HOME}/.pyenv" ]; then
 fi
 
 # -----------------------------
-# nodenv setting
+# mise setting
 # -----------------------------
-eval "$(nodenv init -)"
+eval "$(mise activate zsh)"
 
 # ------------------------------
 # General Settings
@@ -115,9 +115,6 @@ export GOPATH=$HOME/.go
 ### PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
-
-export PATH=~/.rbenv/shims:$PATH
-export PATH=~/.nodebrew/current/bin:$PATH
 export PATH=~/.phpenv/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
